@@ -52,7 +52,6 @@ class Solution {
                 minnum+=(arr[i])*Math.pow(10,(arr.length)-i-1);
             } 
         }
-
         return maxnum-minnum;
     }
 }
