@@ -18,20 +18,15 @@ class Solution {
             }
             digit = arr[index];   
         }
-        // System.out.println(digit);
+
         int maxnum=0;
         for (int i=0; i<arr.length; i++){
-            // System.out.println(arr[i]);
             if (arr[i]==digit){
                 maxnum+=(9)*Math.pow(10,(arr.length)-i-1);  
-                // System.out.println(9*pow);
             }
             else{
                 maxnum+=(arr[i])*Math.pow(10,(arr.length)-i-1);
             }
-            
-            System.out.println(maxnum);
-            // System.out.println(Math.pow(10,(arr.length)-i-1));
         }
 
         int digit1 = arr[0];
@@ -47,7 +42,6 @@ class Solution {
 
         int minnum=0;
         for (int i=0; i<arr.length; i++){
-            // System.out.println(arr[i]);
             if (arr[i]==digit1){
                 if (arr[0]==arr[i]){
                    minnum+=Math.pow(10,(arr.length)-i-1); 
@@ -56,9 +50,7 @@ class Solution {
             }
             else{
                 minnum+=(arr[i])*Math.pow(10,(arr.length)-i-1);
-            }
-            
-            System.out.println(minnum);
+            } 
         }
 
         return maxnum-minnum;
