@@ -12,7 +12,6 @@ class Solution {
         if (dif==0){
             return -1;
         }
-
         return dif;
     }
 }
