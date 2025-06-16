@@ -6,6 +6,7 @@ class Solution {
                 if (nums[j]<nums[i]){
                     continue;
                 }
+                
                 if ((nums[j]-nums[i])>dif){
                     dif = nums[j]-nums[i];
                 }
