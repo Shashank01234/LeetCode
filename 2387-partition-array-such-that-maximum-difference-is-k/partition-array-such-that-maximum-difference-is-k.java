@@ -8,11 +8,9 @@ class Solution {
             largest = nums[i];
 
             if (smallest-largest<=k){
-                
                 if (i+1==nums.length){
                     break;
                 }
-                // System.out.println(smallest+" "+largest+" "+nums[i+1]);
                 if(nums[i+1]-smallest<=k){
                     continue;
                 }
