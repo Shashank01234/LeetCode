@@ -1,7 +1,7 @@
 class Solution {
     public int maxDistance(String s, int k) {
         return Math.max(Math.max(flip(s, k, "NE"), flip(s, k, "NW")),
-            Math.max(flip(s, k, "SE"), flip(s, k, "SW")));
+        Math.max(flip(s, k, "SE"), flip(s, k, "SW")));
     }
 
     private int flip(String s, int k, String direction) {
