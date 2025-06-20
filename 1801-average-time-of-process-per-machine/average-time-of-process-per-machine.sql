@@ -1,5 +1,6 @@
 SELECT a1.machine_id, 
-ROUND(AVG(a2.timestamp-a1.timestamp),3) AS processing_time
+ROUND(AVG(a2.timestamp-a1.timestamp),3) 
+AS processing_time
 FROM Activity a1
 INNER JOIN Activity a2
 ON a1.machine_id = a2.machine_id
