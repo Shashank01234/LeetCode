@@ -12,7 +12,6 @@ class Solution {
                 if (freq < minFreq){
                     deletions += freq;
                 }
-          
                 else {
                     deletions += Math.max(0, freq - (minFreq + k));
                 }
