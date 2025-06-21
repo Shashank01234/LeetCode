@@ -19,7 +19,6 @@ class Solution {
             }
             ans = Math.min(ans, deletions);
         }
-
         return ans;
     }
 }
