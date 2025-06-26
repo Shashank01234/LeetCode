@@ -8,5 +8,5 @@ WITH
       ) is_immediate
     FROM Delivery
   )
-SELECT ROUND(AVG(is_immediate) * 100, 2) immediate_percentage
+SELECT ROUND(AVG(is_immediate) * 100, 2) AS immediate_percentage
 FROM CustomerToIsImmediate;
