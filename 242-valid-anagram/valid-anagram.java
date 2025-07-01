@@ -4,6 +4,7 @@ class Solution {
             return false;
 
         int[] count = new int[26];
+        
         for (final char c : s.toCharArray())
             ++count[c - 'a'];
 
