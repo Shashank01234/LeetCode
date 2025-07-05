@@ -1,31 +1,19 @@
 class Solution {
     public int[] twoSum(int[] nums, int target) {
-        List<Integer> list = new ArrayList<>();
-        List<Integer> result = new ArrayList<>();
+        Map<Integer, Integer> map = new HashMap<>();
 
-        for(int num: nums){
-            list.add(num);
-        }
-
-        int req, n, index;
-        for(int i=0; i<list.size(); i++){
-            req = target - list.get(i);
-            n = list.get(i);
-            list.set(i, 0);
-
-            if(list.contains(req)){
-                index = list.indexOf(req);
-                if(i==index){
-                    list.set(i, n);
-                    continue;
-                }
-                result.add(i);
-                result.add(index);
+        int[] result = new int[2];
+        for(int i=0; i<nums.length; i++){
+            if(map.containsKey(target - nums[i])){
+                result[0] = map.get(target - nums[i]);
+                result[1] = i;
                 break;
             }
-            list.set(i, n);
+            else{
+                map.put(nums[i], i);
+            }
         }
 
-        return result.stream().mapToInt(Integer::intValue).toArray();
+        return result;
     }
 }
