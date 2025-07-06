@@ -9,7 +9,7 @@ class Solution {
         Arrays.fill(result, 1);
         for(int i=1; i<nums.length; i++){
             pre*=nums[i-1];
-            result[i]*=pre;
+            result[i]=pre;
         }
 
         for(int i=nums.length-2; i>=0; i--){
