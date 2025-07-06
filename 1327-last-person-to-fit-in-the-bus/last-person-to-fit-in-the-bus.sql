@@ -10,6 +10,3 @@ FROM AccumulatedQueue
 WHERE accumulated_weight <= 1000
 ORDER BY accumulated_weight DESC
 LIMIT 1;
-
-
-
