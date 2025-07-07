@@ -14,7 +14,7 @@ class Solution {
             }
             
             set.add(ch);
-            result = Math.max(result, right - left +1);
+            result = Math.max(result, right - left + 1);
             right++;
         }
 
