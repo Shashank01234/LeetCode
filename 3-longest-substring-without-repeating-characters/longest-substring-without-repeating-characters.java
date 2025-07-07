@@ -10,9 +10,9 @@ class Solution {
         while(right < s.length()){
             char ch = s.charAt(right);
             while(!set.add(ch)){
-                set.remove(s.charAt(left));
-                left++;
+                set.remove(s.charAt(left++));    
             }
+
             set.add(ch);
             result = Math.max(result, right - left +1);
             right++;
