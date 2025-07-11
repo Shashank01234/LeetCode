@@ -1,6 +1,6 @@
 class Solution {
     public void reorderList(ListNode head) {
-        if (head == null) return;
+        if (head == null || head.next == null ) return;
 
         ListNode slow = head, fast = head;
         while (fast != null && fast.next != null) {
