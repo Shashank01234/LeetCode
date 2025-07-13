@@ -9,11 +9,8 @@ class Solution {
             if(players[p1] <= trainers[t1]){
                 count++;
                 ++p1;
-                ++t1;
             }
-            else{
-                ++t1;
-            }
+            ++t1;
         }
 
         return count;
