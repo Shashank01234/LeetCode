@@ -15,7 +15,6 @@ class Solution {
             if(k==0 || k==numRows-1){
                 direction*=-1;
             }
-
             k+=direction;
         }
 
