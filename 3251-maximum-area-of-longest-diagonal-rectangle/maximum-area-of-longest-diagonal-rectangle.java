@@ -5,7 +5,7 @@ class Solution {
         for(int[] sides: dimensions){
             int l = sides[0];
             int b = sides[1];
-            double newDiag = Math.sqrt(l*l + b*b);
+            double newDiag = l*l + b*b;
             if(diagonal < newDiag){
                 diagonal = newDiag;
                 area = l*b;
