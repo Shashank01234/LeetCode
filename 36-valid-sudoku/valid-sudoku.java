@@ -1,36 +1,32 @@
 class Solution {
     public boolean isValidSudoku(char[][] board) {
-        int n=9;
-        HashSet<Character>[] rows = new HashSet[n];
-        HashSet<Character>[] cols = new HashSet[n];
-        HashSet<Character>[] boxes = new HashSet[n];
-        for(int i=0; i<n; i++){
-            rows[i] = new HashSet<Character>();
-            cols[i] = new HashSet<Character>();
-            boxes[i] = new HashSet<Character>();
+        return dfs(0, board);
+    }
+
+    private boolean dfs(int s, char[][] board){
+        if(s==81) return true;
+
+        final int i = s/9;
+        final int j = s%9;
+
+        if(board[i][j] == '.') return dfs(s+1, board);
+
+        char c = board[i][j];
+        if(isValid(board, i, j, c)){
+            return dfs(s+1, board);
         }
+        else{
+            return false;
+        }
+    }
 
-        for(int r=0; r<n; r++){
-            for(int c=0; c<n; c++){
-                char val = board[r][c];
-
-                if(val == '.'){
-                    continue;
-                }
-
-                if(!rows[r].add(val)){
-                    return false;
-                }
-
-                if(!cols[c].add(val)){
-                    return false;
-                }
-
-                int index = (r/3) * 3 + (c/3);
-                if(!boxes[index].add(val)){
-                    return false;
-                }
-            }
+    private boolean isValid(char[][] board, int row, int col, char ch){
+        for(int i=0; i<9; ++i){
+            int r = 3*(row/3) + i/3;
+            int c = 3*(col/3) + i%3;
+            if(i!=col && board[row][i] == ch || i!=row && board[i][col] == ch || r!=row && c!=col && board[r][c] == ch){
+                return false;
+            } 
         }
 
         return true;
