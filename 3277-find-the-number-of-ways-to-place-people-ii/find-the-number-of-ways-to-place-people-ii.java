@@ -9,11 +9,9 @@ class Solution {
             return Integer.compare(a[0], b[0]); 
         });
 
-
         for(int i=0; i<n; ++i){
             int y1 = points[i][1];
             int maxY = Integer.MIN_VALUE;
-
             for(int j=i+1; j<n; ++j){
                 int y2 = points[j][1];
 
