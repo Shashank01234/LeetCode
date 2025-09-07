@@ -15,8 +15,6 @@ class Solution {
         }
 
         for(int i=s; i<candidates.length; ++i){
-            if (i > s && candidates[i] == candidates[i - 1])
-                continue;
             path.add(candidates[i]);
             dfs(candidates, i, target - candidates[i], path, result);
             path.remove(path.size()-1);
