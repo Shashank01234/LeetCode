@@ -7,7 +7,7 @@ class Solution {
     }
 
     private void dfs(int[] candidates, int s, int target, List<Integer> path, List<List<Integer>> result){
-        if(target<0 || s==candidates.length) return;
+        if(target<0) return;
 
         if(target == 0){
             result.add(new ArrayList<>(path));
