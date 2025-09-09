@@ -5,8 +5,7 @@ class Solution {
 
         while(left<=right){
             if(nums[left]==target && nums[right]==target){
-                int[] result = {left, right};
-                return result;
+                return new int[]{left, right};
             }
 
             if(nums[left]==target){
