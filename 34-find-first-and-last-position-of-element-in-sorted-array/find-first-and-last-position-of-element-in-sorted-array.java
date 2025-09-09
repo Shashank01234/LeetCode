@@ -21,7 +21,6 @@ class Solution {
             --right;
         }
 
-        int[] result = {-1, -1};
-        return result;
+        return new int[]{-1, -1};
     }
 }
