@@ -8,15 +8,13 @@ class Solution {
     private void dfs(String s, int idx, List<String> path, List<List<String>> result){
         if(idx == s.length()){
             result.add(new ArrayList<>(path));
-
             return;
         }
 
-        StringBuilder sb = new StringBuilder();
         for(int i=idx; i<s.length(); ++i){
-            sb.append(s.charAt(i));
-            if(isPalindrome(sb.toString())){
-                path.add(sb.toString());
+            String temp = s.substring(idx, i+1);
+            if(isPalindrome(temp)){
+                path.add(temp);
                 dfs(s, i+1, path, result);
                 path.remove(path.size()-1);
             }   
