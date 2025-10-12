@@ -20,12 +20,12 @@ class Solution {
 
         Queue<TreeNode> queue = new LinkedList<>();
         queue.offer(root);
-        bfs(queue, 0);
+        bfs(queue, false);
 
         return result;
     }
 
-    private void bfs(Queue<TreeNode> queue, int n){
+    private void bfs(Queue<TreeNode> queue, boolean rev){
         if(queue.isEmpty()) return;
 
         List<Integer> level = new ArrayList<>();
@@ -38,10 +38,11 @@ class Solution {
             if(node.left!=null) next.offer(node.left);
             if(node.right!=null) next.offer(node.right);
         }
-        if(n%2!=0){
+        if(rev){
             Collections.reverse(level);
         }
         result.add(level);
-        bfs(next, n+1);
+        rev = rev==true? false:true;
+        bfs(next, rev);
     }
 }
