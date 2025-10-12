@@ -25,33 +25,22 @@ class Solution {
     public Node connect(Node root) {
         if(root==null) return root;
 
-        Queue<Node> queue = new LinkedList<>();
-        queue.offer(root);
-        bfs(queue);
-        return root;
-    }
+        Node leftmost = root;
+        while(leftmost.left!=null){
+            Node curr = leftmost;
+            while(curr!=null){
+                curr.left.next = curr.right;
 
-    private void bfs(Queue<Node> queue){
-        if(queue.isEmpty()) return;
+                if(curr.next!=null){
+                    curr.right.next = curr.next.left;
+                }
 
-        Queue<Node> q2 = new LinkedList<>();
-        Node prev = queue.poll();
-        boolean leaf = prev.left!=null? false: true;
-        if(!leaf){
-            q2.offer(prev.left);
-            q2.offer(prev.right);
-        }
-        while(!queue.isEmpty()){
-            Node curr = queue.poll();
-            if(!leaf){
-                q2.offer(curr.left);
-                q2.offer(curr.right);
+                curr = curr.next;
             }
-            prev.next = curr;
-            prev = prev.next;
+
+            leftmost = leftmost.left;
         }
 
-        prev.next = null;
-        bfs(q2);
+        return root;
     }
 }
