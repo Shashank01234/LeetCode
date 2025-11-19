@@ -1,10 +1,12 @@
 class Solution {
     public int findFinalValue(int[] nums, int original) {
-        Arrays.sort(nums);
-        for(int num: nums){
-            if(num==original){
-                original*=2;
-            }
+        Queue<Integer> queue = new PriorityQueue<>();
+        for(int num:nums){
+            queue.offer(num);
+        }
+
+        while(queue.contains(original)){
+            original*=2;
         }
 
         return original;
