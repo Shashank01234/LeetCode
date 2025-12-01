@@ -1,5 +1,7 @@
 class Solution {
+    private int[] batteries;
     public long maxRunTime(int n, int[] batteries) {
+        this.batteries = batteries;
         long right = 0, left = 0;
 
         for (int b : batteries) {
@@ -10,7 +12,7 @@ class Solution {
         while (left < right) {
             long mid = (left + right + 1) / 2;
 
-            if (check(n, batteries, mid)) {
+            if (check(n, mid)) {
                 left = mid;
             } else {
                 right = mid - 1;
@@ -20,7 +22,7 @@ class Solution {
         return left;
     }
 
-    public boolean check(int n, int[] batteries, long T) {
+    public boolean check(int n, long T) {
         long total = 0;
 
         for (int b : batteries) {
