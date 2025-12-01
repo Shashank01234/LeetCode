@@ -2,36 +2,32 @@ class Solution {
     private int[] batteries;
     public long maxRunTime(int n, int[] batteries) {
         this.batteries = batteries;
-        long right = 0, left = 0;
+        
+        long left=0;
+        long right=0;
 
-        for (int b : batteries) {
-            right += b;
-        }
-        right /= n;
+        for(int b: batteries) right+=b;
+        right/=n;
 
-        while (left < right) {
-            long mid = (left + right + 1) / 2;
+        while(left<right){
+            long mid = (left+right+1)/2;
 
-            if (check(n, mid)) {
-                left = mid;
-            } else {
-                right = mid - 1;
-            }
+            if(check(n, mid)) left = mid;
+            else right = mid-1;
         }
 
         return left;
     }
 
-    public boolean check(int n, long T) {
-        long total = 0;
+    private boolean check(int n, long mid){
+        long target=0;
 
-        for (int b : batteries) {
-            total += Math.min(b, T);
-            if (total >= (long) n * T) {
-                return true;
-            }
+        for(int b: batteries){
+            target+=Math.min(b, mid);
+
+            if(target >= (long)mid*n) return true;
         }
 
-        return total >= (long) n * T;
+        return target >= (long)mid*n;
     }
 }
