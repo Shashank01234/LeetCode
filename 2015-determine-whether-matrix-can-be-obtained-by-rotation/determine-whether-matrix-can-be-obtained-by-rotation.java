@@ -16,7 +16,7 @@ class Solution {
         return true;
     }
 
-    private int[][]rotate(int[][]mat){
+    private int[][] rotate(int[][]mat){
         int n = mat.length;
         int[][]res = new int[n][n];
 
