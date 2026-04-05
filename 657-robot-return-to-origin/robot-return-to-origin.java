@@ -1,49 +1,22 @@
 class Solution {
     public boolean judgeCircle(String moves) {
-        Stack<Character> up = new Stack<>();
-        Stack<Character> down = new Stack<>();
-        Stack<Character> right = new Stack<>();
-        Stack<Character> left = new Stack<>();
+        int[] count = new int[2];
 
         for(char ch: moves.toCharArray()){
             if(ch == 'U'){
-                if(down.isEmpty()){
-                    up.push(ch);
-                }
-
-                else{
-                    down.pop();
-                }
+                count[0]++;
             }
             if(ch == 'D'){
-                if(up.isEmpty()){
-                    down.push(ch);
-                }
-
-                else{
-                    up.pop();
-                }
+                count[0]--;
             }
             if(ch == 'R'){
-                if(left.isEmpty()){
-                    right.push(ch);
-                }
-
-                else{
-                    left.pop();
-                }
+                count[1]++;
             }
             if(ch == 'L'){
-                if(right.isEmpty()){
-                    left.push(ch);
-                }
-
-                else{
-                    right.pop();
-                }
+                count[1]--;
             }
         }
 
-        return up.isEmpty() && down.isEmpty() && left.isEmpty() && right.isEmpty();
+        return count[0] == 0 && count[1] == 0;
     }
 }
