@@ -21,10 +21,9 @@ class Solution {
 
             for(int i=0; i+2<value.size(); i++){
                 int i1 = value.get(i);
-                int i2 = value.get(i+1);
-                int i3 = value.get(i+2);
+                int i2 = value.get(i+2);
 
-                result = Math.min(result, (i2-i1) + (i3-i2) + (i3-i1));
+                result = Math.min(result, 2*(i2-i1));
             }
         }
 
