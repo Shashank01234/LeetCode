@@ -4,8 +4,15 @@ class Solution {
             return;
         }
 
-        int p1 = 0;
-        int p2 = 1;
+        int p1=0;
+        while(nums[p1] != 0){
+            p1++;
+
+            if(p1 == nums.length){
+                return;
+            }
+        }
+        int p2 = p1+1;
         
         while(p2<nums.length){
             if(nums[p1] == 0){
