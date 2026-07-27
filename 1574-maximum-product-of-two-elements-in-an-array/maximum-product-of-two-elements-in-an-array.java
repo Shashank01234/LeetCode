@@ -1,8 +1,10 @@
 class Solution {
     public int maxProduct(int[] nums) {
-        int n = nums.length;
-        Arrays.sort(nums);
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+        for(int num: nums){
+            queue.offer(num-1);
+        }
 
-        return (nums[n-1]-1) * (nums[n-2]-1);
+        return queue.poll() * queue.poll();
     }
 }
