@@ -8,7 +8,6 @@ class Solution {
             if(colors[l] != colors[r]) {
                 res += robRange(nums, l, r-1);
                 l=r;
-                continue;
             }
 
             r++;
