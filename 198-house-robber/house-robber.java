@@ -8,7 +8,6 @@ class Solution {
             int skip = prev2;
 
             int curr = Math.max(take, skip);
-            
             prev1 = prev2;
             prev2 = curr;
         }
