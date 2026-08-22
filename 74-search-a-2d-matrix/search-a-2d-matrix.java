@@ -7,7 +7,7 @@ class Solution {
         int l = 0;
         int r = m*n;
         while(l<r){
-            final int mid = (l+r)/2;
+            final int mid = l + (r-l)/2;
             int i = mid/n;
             int j = mid%n;
 
