@@ -1,6 +1,7 @@
 class Solution {
     private int res=0;
     private ArrayList<String> visited = new ArrayList<>();
+    private char[] choices = {'A', 'C', 'G', 'T'};
     public int minMutation(String startGene, String endGene, String[] bank) {
         Queue<String> queue = new LinkedList<>();
         queue.offer(startGene);
@@ -24,17 +25,15 @@ class Solution {
 
             for(int i=0; i<8; i++) {
                 char ch = sb.charAt(i);
-                sb.setCharAt(i, 'A');
-                checkString(sb.toString(), bank, next);
 
-                sb.setCharAt(i, 'C');
-                checkString(sb.toString(), bank, next);
+                for(char c: choices){
+                    if(ch == c){
+                        continue;
+                    }
 
-                sb.setCharAt(i, 'G');
-                checkString(sb.toString(), bank, next);
-
-                sb.setCharAt(i, 'T');
-                checkString(sb.toString(), bank, next);    
+                    sb.setCharAt(i, c);
+                    checkString(sb.toString(), bank, next);
+                }    
 
                 sb.setCharAt(i, ch);            
             }
