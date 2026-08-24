@@ -1,7 +1,6 @@
 class Solution {
-    private boolean[] visited;
     public boolean validPath(int n, int[][] edges, int source, int destination) {
-        visited = new boolean[n];
+        boolean[] visited = new boolean[n];
 
         HashMap<Integer, ArrayList<Integer>> map = new HashMap<>();
         for(int[] edge: edges) {
@@ -13,10 +12,10 @@ class Solution {
         queue.offer(source);
         visited[source] = true;
 
-        return bfs(map, queue, destination);
+        return bfs(map, queue, visited, destination);
     }
 
-    private boolean bfs(HashMap<Integer, ArrayList<Integer>> map, Queue<Integer> queue, int destination) {
+    private boolean bfs(HashMap<Integer, ArrayList<Integer>> map, Queue<Integer> queue, boolean[] visited, int destination) {
         if(queue.isEmpty()) {
             return false;
         }
@@ -38,6 +37,6 @@ class Solution {
             }
         }
 
-        return bfs(map, next, destination);
+        return bfs(map, next, visited, destination);
     }
 }
