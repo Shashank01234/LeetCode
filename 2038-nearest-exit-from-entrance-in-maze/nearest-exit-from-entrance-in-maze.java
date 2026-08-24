@@ -34,9 +34,10 @@ class Solution {
             }
 
             for(int[] d: dir) {
-                int[] newPos = {pos[0]+d[0], pos[1]+d[1]};
+                int row = pos[0] + d[0];
+                int col = pos[1] + d[1];
 
-                checkPos(queue, newPos, maze, visited);
+                checkPos(queue, row, col, maze, visited);
             }
         }
         
@@ -44,13 +45,13 @@ class Solution {
         bfs(queue, maze, visited);
     }
 
-    private void checkPos(Queue<int[]> queue, int[] pos, char[][] maze, boolean[][] visited) {
-        if(pos[0] < 0 || pos[0] >= maze.length || pos[1] < 0 || pos[1] >= maze[0].length || maze[pos[0]][pos[1]] == '+' || visited[pos[0]][pos[1]]) {
+    private void checkPos(Queue<int[]> queue, int row, int col, char[][] maze, boolean[][] visited) {
+        if(row < 0 || row >= maze.length || col < 0 || col >= maze[0].length || maze[row][col] == '+' || visited[row][col]) {
             return;
         }
 
-        queue.offer(pos);
+        queue.offer(new int[]{row, col});
        
-        visited[pos[0]][pos[1]] = true;
+        visited[row][col] = true;
     }
 }
